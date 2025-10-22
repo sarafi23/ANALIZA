@@ -1,0 +1,235 @@
+/* Paleta de Colores:
+    - Principal: #004d99 (Azul Oscuro/ACT)
+    - Secundario: #007bff (Azul Vivo)
+    - Fondo: #f0f4f8 (Gris/Azul muy claro)
+    - Éxito (Verde): #28a745
+    - Error (Rojo): #dc3545
+*/
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #f0f4f8; /* Fondo suave */
+    margin: 0;
+    padding: 40px 20px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Sombra más suave y profunda */
+    border-top: 6px solid #004d99; /* Línea de color principal */
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.header img {
+    max-width: 120px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 1.8em;
+    color: #004d99;
+    margin: 0;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.1em;
+    color: #6c757d;
+    margin-top: 5px;
+    font-weight: 400;
+}
+
+h3 {
+    font-size: 1.3em;
+    color: #004d99;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra para tarjetas */
+    border: 1px solid #dee2e6;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #495057;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: #f8f9fa;
+    color: #495057;
+    font-size: 1em;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    margin-top: 15px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+.download-btn {
+    background-color: #28a745; /* Verde para descargar QR */
+    margin-top: 10px;
+}
+
+.download-btn:hover {
+    background-color: #1e7e34;
+}
+
+.pdf-btn {
+    background-color: #dc3545; /* Rojo para PDF */
+    margin-top: 10px;
+}
+
+.pdf-btn:hover {
+    background-color: #c82333;
+}
+
+#qr-container {
+    text-align: center;
+    display: none;
+}
+
+#qrcode {
+    margin: 20px auto;
+}
+
+#result-message {
+    text-align: center;
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.error {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+
+.success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+#auth-details p {
+    margin: 8px 0;
+    padding-left: 10px;
+    border-left: 3px solid #004d99;
+}
+
+#auth-details strong {
+    color: #004d99;
+    font-weight: 600;
+}
+
+.expiration-message {
+    background-color: #ffebee;
+    border: 2px solid #f44336;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 20px;
+    text-align: center;
+}
+.expiration-message h4 {
+    color: #d32f2f !important;
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.footer {
+    text-align: center;
+    font-size: 0.75em;
+    color: #6c757d;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #e9ecef;
+}
+
+/* Opcional: mejora visual para los labels de inputs dinámicos */
+#input-id-container label {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 640px) {
+    body {
+        padding: 20px 10px;
+    }
+    .container {
+        padding: 20px;
+        border-radius: 0;
+        box-shadow: none;
+        border-top-width: 5px;
+    }
+    .card {
+        padding: 15px;
+    }
+    h1 {
+        font-size: 1.6em;
+    }
+    h3 {
+        font-size: 1.2em;
+    }
+    button {
+        padding: 10px;
+        font-size: 0.95em;
+    }
+}

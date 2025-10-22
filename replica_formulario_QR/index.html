@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autorización - ACT Milagro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="img/Logo_ACT.png" alt="ACT Logo" class="logo">
+            <h1>AUTORIZACIÓN</h1>
+        </div>
+
+        <div id="input-section" class="card">
+            <h3>Ingrese los Datos del Propietario</h3>
+            <div class="form-group">
+                <label for="placa-input">Placa</label>
+                <input type="text" id="placa-input" placeholder="Ej: OBM0979-ABC1234" required>
+            </div>
+            <div class="form-group">
+                <label for="nombre-input">Nombres</label>
+                <input type="text" id="nombre-input" placeholder="Nombres" required>
+            </div>
+            <div class="form-group">
+                <label for="tipo-id">Tipo de identificación</label>
+                <select id="tipo-id" onchange="mostrarInputID()">
+                    <option value="">Seleccione...</option>
+                    <option value="cedula">Cédula</option>
+                    <option value="ruc">RUC</option>
+                    <option value="ambos">Ambos</option>
+                </select> 
+            </div> 
+            <div class="form-group" id="input-id-container"></div>
+
+            <div class="form-group">
+                <label for="correo-input">Correo Electrónico</label>
+                <input type="text" id="correo-input" placeholder="Correo" required> 
+            </div>
+            <div class="form-group">
+                <label for="telefono-input">Teléfono</label>
+                <input type="text" id="telefono-input" placeholder="Teléfono" required>
+            </div> 
+            
+            <div class="form-group">
+                <label for="autorizacion-id">Tipo de Autorización</label>
+                <select id="autorizacion-id" onchange="mostrarInputAutorizacion()">
+                    <option value="">Seleccione...</option>
+                    <option value="aut-est-liviano">Estacionamiento Liviano</option>
+                    <option value="aut-est-pesado">Estacionamiento Pesado</option>
+                    <option value="carga-des-liviano">Carga y Descarga Liviana</option>
+                    <option value="carga-des-pesado">Carga y Descarga Pesada</option>
+                    <option value="circulacion-liviana">Circulación Liviana</option>
+                    <option value="circulacion-pesada">Circulación Pesada</option>
+                    <option value="circulacion-esc-pesado">Circulación Escolar Pesado</option>
+                    <option value="otro">Otro...</option>
+                </select>
+            </div> 
+            <div class="form-group" id="input-autorizacion-container"></div>
+            
+            <div class="form-group">
+                <label for="autorizacion-input">Número de Autorización</label>
+                <input type="text" id="autorizacion-input" placeholder="Ej: ACT-EP-DPOTTTM-016-2025-ACVIL" maxlength="30" required>
+            </div>
+            <div class="form-group">
+                <label for="caducidad-input">Vigencia</label>
+                <input type="date" id="caducidad-input" min="">
+            </div>
+            <button onclick="validateAndGenerate()">Validar y Generar QR</button>
+            <div id="result-message" class="error"></div>
+        </div>
+
+        <div id="qr-container" class="card">
+            <h3>Código QR Generado</h3>
+            <div id="qrcode"></div>
+            <button class="download-btn" onclick="downloadQR()">Descargar QR (PNG)</button>
+        </div>
+
+        <div id="auth-details" class="card" style="display: none;"> 
+            <h3>Detalles de la Autorización</h3>
+            <p><strong>Número de Documento:</strong> <span id="auth-autorizacion"></span></p>
+            <p><strong>Placa:</strong> <span id="auth-placa"></span></p>
+            <p><strong>Nombres:</strong> <span id="auth-nombre"></span></p>
+            <p><strong>Tipo de Autorización:</strong> <span id="auth-tipo-autorizacion"></span></p>
+            <p><strong>Vigencia:</strong> <span id="auth-caducidad"></span></p>
+            
+            <button class="pdf-btn" onclick="generatePDF()">Generar PDF de Autorización</button>
+        </div>
+
+        <div class="footer">
+            <p>EMOVIM-EP | Av. Simón Bolívar y Juan Montalvo | Milagro, Ecuador | genercia@emovim-ep.gob.ec</p>
+            <p id="current-date">Fecha: 07 de octubre de 2025, 12:14</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
